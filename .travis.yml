@@ -1,7 +1,7 @@
 dist: trusty
 
 install:
-    - sudo apt-get install texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra dvipng
+    - sudo apt-get install texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra dvipng texlive-publishers
 
 script:
     - cd manuscript/v1
