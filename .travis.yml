@@ -1,0 +1,16 @@
+dist: trusty
+
+install:
+    - sudo apt-get install texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra dvipng
+
+script:
+    - make
+
+after_success: |
+    if [ -n "$GITHUB_API_KEY" ]; then
+    git checkout --orphan pdf
+    git rm -rf .
+    git add -f ms.pdf
+    git -c user.name='travis' -c user.email='travis' commit -m init
+    git push -f -q https://jellis18:$GITHUB_API_KEY@github.com/jellis18/gibbs_student_t pdf
+    fi
